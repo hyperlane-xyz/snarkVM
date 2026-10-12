@@ -6,7 +6,7 @@ set -euo pipefail
 
 OWNER="ProvableHQ"
 REPO="snarkVM"
-WS="${WS:-.claude/workspace}"
+WS="${WS:-.agents/workspace}"
 
 log_info() { echo "[INFO] $1"; }
 log_error() { echo "[ERROR] $1"; }

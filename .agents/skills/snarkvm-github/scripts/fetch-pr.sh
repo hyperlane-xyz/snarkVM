@@ -7,7 +7,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 OWNER="ProvableHQ"
 REPO="snarkVM"
-WS="${WS:-.claude/workspace}"
+WS="${WS:-.agents/workspace}"
 
 log_info() { echo "[INFO] $1"; }
 log_warn() { echo "[WARN] $1"; }

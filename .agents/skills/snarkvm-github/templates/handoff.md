@@ -7,9 +7,9 @@
 
 ## Context
 
-- **State file:** `.claude/workspace/state-pr-{{NUM}}.md`
-- **Unresolved threads:** `.claude/workspace/unresolved-pr-{{NUM}}.json`
-- **Files changed:** `.claude/workspace/files-pr-{{NUM}}.txt`
+- **State file:** `.agents/workspace/state-pr-{{NUM}}.md`
+- **Unresolved threads:** `.agents/workspace/unresolved-pr-{{NUM}}.json`
+- **Files changed:** `.agents/workspace/files-pr-{{NUM}}.txt`
 
 ## Summary
 

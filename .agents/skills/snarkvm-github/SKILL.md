@@ -1,18 +1,24 @@
 ---
 name: snarkvm-github
-description: |
-  Fetch GitHub context (PR or issue) into workspace for snarkVM development.
+description: 'Fetch GitHub context (PR or issue) into workspace for snarkVM development.
+
   WHEN: User says "fetch pr", "fetch issue", "get PR context", "load issue",
+
   mentions PR/issue numbers like "#123" or "PR 456", or needs GitHub context
+
   before reviewing/fixing.
+
   WHEN NOT: User already has fresh context loaded, or is asking about
+
   non-snarkVM repositories.
+
+  '
 allowed-tools: Bash, Read, Write
 ---
 
 # snarkVM GitHub Context
 
-Fetch PR or issue context from ProvableHQ/snarkVM into `.claude/workspace/`.
+Fetch PR or issue context from ProvableHQ/snarkVM into `.agents/workspace/`.
 
 ## Usage
 
@@ -30,8 +36,8 @@ gh auth status || gh auth login
 ## Fetch PR Context
 
 ```bash
-SKILL_DIR="$(dirname "$(readlink -f "$0")")"
-"$SKILL_DIR/scripts/fetch-pr.sh" $ARGUMENTS
+SKILL_DIR=".agents/skills/snarkvm-github"
+"$SKILL_DIR/scripts/fetch-pr.sh" <pr-number> [--force]
 ```
 
 Produces: `context-pr-N.json`, `files-pr-N.txt`, `commits-pr-N.json`, `comments-pr-N.json`, `checks-pr-N.json`, `threads-pr-N.jsonl`, `unresolved-pr-N.json`, `resolved-pr-N.json`, `linked-issues-pr-N.txt`, `state-pr-N.md`
@@ -39,8 +45,8 @@ Produces: `context-pr-N.json`, `files-pr-N.txt`, `commits-pr-N.json`, `comments-
 ## Fetch Issue Context
 
 ```bash
-SKILL_DIR="$(dirname "$(readlink -f "$0")")"
-"$SKILL_DIR/scripts/fetch-issue.sh" $ARGUMENTS
+SKILL_DIR=".agents/skills/snarkvm-github"
+"$SKILL_DIR/scripts/fetch-issue.sh" <issue-number> [--force]
 ```
 
 Produces: `context-issue-N.json`, `comments-issue-N.jsonl`, `timeline-issue-N.json`, `linked-prs-issue-N.txt`, `state-issue-N.md`
@@ -48,7 +54,7 @@ Produces: `context-issue-N.json`, `comments-issue-N.jsonl`, `timeline-issue-N.js
 ## Quick Refresh (PR threads only)
 
 ```bash
-SKILL_DIR="$(dirname "$(readlink -f "$0")")"
+SKILL_DIR=".agents/skills/snarkvm-github"
 "$SKILL_DIR/scripts/refresh-threads.sh" <pr_number>
 ```
 

@@ -1,23 +1,26 @@
 ---
 name: snarkvm-review
-description: |
-  Security-focused PR review for snarkVM codebase.
+description: 'Use only when explicitly requested. Security-focused PR review for snarkVM
+  codebase.
+
   WHEN: User says "review PR", "audit PR", "security review", "check PR changes",
+
   or wants thorough analysis of PR changes for bugs/vulnerabilities.
+
   WHEN NOT: Fixing review feedback (use snarkvm-fix pr), fetching context only
+
   (use snarkvm-github), or fixing issues (use snarkvm-fix).
-context: fork
-agent: general-purpose
-model: opus
+
+  '
 allowed-tools: Bash, Read, Write, Grep, Glob, Task
-disable-model-invocation: true
 ---
+Invoke this skill only on an explicit user request.
 
 # Security-Focused PR Review
 
 **Mindset: Assume there is a bug. Find it. Ultrathink.**
 
-This skill runs in a forked context to keep exploration out of your main conversation.
+When the host supports delegation, run the review in an isolated context and return the findings to the caller.
 
 ## Usage
 
@@ -28,9 +31,9 @@ This skill runs in a forked context to keep exploration out of your main convers
 ## Setup
 
 ```bash
-PR=$ARGUMENTS
-WS=".claude/workspace"
-SKILL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../snarkvm-github" && pwd)"
+PR=123  # Replace with the requested PR number
+WS=".agents/workspace"
+SKILL_DIR=".agents/skills/snarkvm-github"
 ```
 
 ## 1. Load Context

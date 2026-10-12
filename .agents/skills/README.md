@@ -1,6 +1,6 @@
-# snarkVM Claude Skills
+# snarkVM Agent Skills
 
-Drop-in Claude Code skills for snarkVM development workflows.
+Portable Agent Skills for snarkVM development workflows.
 
 ## Skills Overview
 
@@ -28,10 +28,10 @@ Skills auto-fetch context when needed. Use `--force` to refresh stale data.
 
 ## Workspace Structure
 
-All context is stored in `.claude/workspace/`:
+All context is stored in `.agents/workspace/`:
 
 ```
-.claude/workspace/
+.agents/workspace/
 ├── context-pr-123.json      # PR metadata
 ├── files-pr-123.txt         # Changed files
 ├── commits-pr-123.json      # Commits

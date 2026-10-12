@@ -1,12 +1,18 @@
 ---
 name: snarkvm-fix
-description: |
-  Fix GitHub issues or PR review feedback in snarkVM using TDD workflow.
+description: 'Fix GitHub issues or PR review feedback in snarkVM using TDD workflow.
+
   WHEN: User says "fix issue", "fix #123", "fix pr", "fix PR feedback",
+
   "address review comments", "resolve review threads", or wants to fix
+
   a bug/feature request from GitHub issues or address reviewer requests.
+
   WHEN NOT: Doing security review (use snarkvm-review), fetching context
+
   only (use snarkvm-github), or working on non-snarkVM code.
+
+  '
 allowed-tools: Bash, Read, Write, Grep, Glob, Task, AskUserQuestion
 ---
 
@@ -26,8 +32,8 @@ Fix snarkVM GitHub issues or PR review comments using test-driven development.
 ```bash
 MODE="${ARGUMENTS%% *}"   # "issue" or "pr"
 NUM="${ARGUMENTS#* }"     # the number
-WS=".claude/workspace"
-SKILL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../snarkvm-github" && pwd)"
+WS=".agents/workspace"
+SKILL_DIR=".agents/skills/snarkvm-github"
 ```
 
 ## 1. Load Context
@@ -77,7 +83,7 @@ Present a concrete plan:
 | # | Location | Change | Test | Risk |
 |---|----------|--------|------|------|
 
-**Use AskUserQuestion to get explicit approval before proceeding.**
+**Ask the user to get explicit approval before proceeding.**
 
 ## 4. Implement (TDD)
 
@@ -111,6 +117,6 @@ Validate affected crates per AGENTS.md.
 If you disagree with a review comment:
 1. Explain your reasoning with evidence
 2. Propose an alternative if applicable
-3. **Use AskUserQuestion** to discuss before proceeding
+3. **Ask the user** to discuss before proceeding
 
 Never silently ignore review feedback.

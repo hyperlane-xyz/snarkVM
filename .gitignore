@@ -18,10 +18,5 @@ flamegraph.svg
 **/proptest-regressions/
 artifacts
 
-# Claude Code
-**/CLAUDE.md
-!.claude/CLAUDE.md
-.claude/*
-!.claude/CLAUDE.md
-!.claude/.gitignore
-!.claude/skills/
+# Agent scratch files
+.agents/workspace/
